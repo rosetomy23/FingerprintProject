@@ -31,6 +31,7 @@ def index(request):
             with open("./templates/report.html", 'w') as f:
                 f.write("<h2><center>No enough data to generate graph</center></h2>")
             return render(request, 'report.html', {})
+        df=df.sort_values(1)
         df[1] = df[1].astype(str)+" Hour:"+df[3].astype(str)
         dateandhour = df[1].unique()
         present = []
