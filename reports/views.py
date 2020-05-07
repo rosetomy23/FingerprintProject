@@ -48,8 +48,8 @@ def index(request):
             except:
                 absent.append(0)
         fig = go.Figure(data=[
-            go.Bar(name='Present', x=dateandhour, y=present, marker_color="green"),
-            go.Bar(name='Absent', x=dateandhour, y=absent, marker_color="red")])
+            go.Bar(name='Present', width=0.3, x=dateandhour, y=present, marker_color="green"),
+            go.Bar(name='Absent',  width=0.3, x=dateandhour, y=absent, marker_color="red")])
         fig.update_layout(
             barmode='stack', title=title,
             xaxis_title="Date and Hour", yaxis_title="Total Students",
