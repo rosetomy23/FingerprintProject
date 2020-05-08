@@ -87,14 +87,14 @@ uint8_t findFingerPrint() {
       delay(3000);
 
       int newUploadButtonVal = digitalRead(uploadButtonPin);  // read input value
-      //if (uploadButtonVal != newUploadButtonVal) {
+      if (uploadButtonVal != newUploadButtonVal) {
         lcd.clear();
         lcd.print("Clearing.");
 
         clearEEPROM();
         uploadButtonVal = newUploadButtonVal;
         delay(2000);
-      //}
+      }
 
     }
 
@@ -171,7 +171,27 @@ uint8_t findFingerPrint() {
       }
 
       lcd.clear();
-    $replacetext
+    
+switch (finger.fingerID) { 
+ case 28:
+   lcd.print("ROSE TOM");
+   break;
+ case 21:
+   lcd.print("MEGHANA R");
+   break;
+ case 20:
+   lcd.print("RISWAN");
+   break;
+ case 19:
+   lcd.print("AZHAR");
+   break;
+ case 8:
+   lcd.print("SEBIN POULOSE");
+   break;
+ default:
+   lcd.print("error");
+}
+
       delay(2000);
       break;
     case FINGERPRINT_NOTFOUND:

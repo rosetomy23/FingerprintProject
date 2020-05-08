@@ -264,6 +264,7 @@ uint8_t getFingerprintEnroll() {
     lcd.clear();
     lcd.print("Stored!");
     delay(2000);
+    return 1;
   } else if (p == FINGERPRINT_PACKETRECIEVEERR) {
     lcd.clear();
     lcd.print("Communication error");

@@ -84,6 +84,7 @@ def show(request):
 def result(request):
     url = "./media/out.csv"
     df = pd.read_csv(url, names=["UID"], header=None)
+    df = df.drop_duplicates(subset=["UID"], keep='first')
     #  print(classname, date, hour, course)
     # todo student class validation course validation , date+hour entry check
     try:
