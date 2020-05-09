@@ -22,4 +22,5 @@ urlpatterns = [
     path('', launchwaiting, name='launchhome'),
     path('admin/', admin.site.urls),
     path('upload/', include('uploadapp.urls')),
+    path('report/', include('reports.urls')),
 ]

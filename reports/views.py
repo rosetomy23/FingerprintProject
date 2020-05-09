@@ -31,6 +31,7 @@ def index(request):
             with open("./templates/report.html", 'w') as f:
                 f.write("<h2><center>No enough data to generate graph</center></h2>")
             return render(request, 'report.html', {})
+        df=df.sort_values(1)
         df[1] = df[1].astype(str)+" Hour:"+df[3].astype(str)
         dateandhour = df[1].unique()
         present = []
@@ -47,8 +48,8 @@ def index(request):
             except:
                 absent.append(0)
         fig = go.Figure(data=[
-            go.Bar(name='Present', x=dateandhour, y=present, marker_color="green"),
-            go.Bar(name='Absent', x=dateandhour, y=absent, marker_color="red")])
+            go.Bar(name='Present', width=0.3, x=dateandhour, y=present, marker_color="green"),
+            go.Bar(name='Absent',  width=0.3, x=dateandhour, y=absent, marker_color="red")])
         fig.update_layout(
             barmode='stack', title=title,
             xaxis_title="Date and Hour", yaxis_title="Total Students",
